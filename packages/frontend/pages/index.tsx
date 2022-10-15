@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     return (
         <Box w={"100%"} height={"100%"} pl='5%' pr='5%'>
             <Head>
-                <title>Yale CareerMate</title>
+                <title>CareerMate</title>
                 <meta name="description" content="Yale CareerMate website"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { VStack, Heading, Box, HStack } from '@chakra-ui/react';
 import Image from 'next/image'
-import BuildingSearchBar from '../building-components/BuildingSearchBar'
+import UserSearchBar from '../search-components/userSearchBar'
 import logo from "../assets/apartmate_full_logo.png";
 import hero from "../assets/graphic_hero_green.png";
 
@@ -20,8 +20,8 @@ export default function Home () {
                 </HStack>
                 <HStack w="full">
                     <Box w="50%">
-                        <Heading fontSize={'2xl'} pb="5%">Lets find your perfect apartment!   </Heading>
-                        <BuildingSearchBar/>
+                        <Heading fontSize={'2xl'} pb="5%">Lets find your CareerMate!   </Heading>
+                        <UserSearchBar/>
                     </Box>
                     <Box w="50%">
                         <Image src={hero} alt="Apartmate hero image"/>
