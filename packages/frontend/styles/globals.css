@@ -1,0 +1,71 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0.5em;
+}
+/* button {
+  border-color: black;
+  background-color: white;
+  box-shadow: none;
+  border-radius: 10em;
+  padding: 1em;
+  margin: 10px;
+  height: 3em;
+  width: 10em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+input {
+  margin: 0.5em;
+}
+
+.accessButton {
+  height: 3em;
+  width: 10em;
+}
+
+.authButton {
+  border-color: black;
+  background-color: white;
+  box-shadow: none;
+  border-radius: 10em;
+  padding: 1em;
+  margin: none;
+  height: 60px;
+  width: 300px;
+}
+
+.navBar {
+  /* make items align on right */
+  display: flex;
+  justify-content: flex-end;
+  /* make items wrap */
+  flex-wrap: wrap;
+  /* center items vertically */
+  align-items: center;
+  background-color: #BBD686;
+  height: 5em;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

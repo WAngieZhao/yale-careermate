@@ -1,0 +1,31 @@
+{
+  "name": "apartmate",
+  "version": "1.0.0",
+  "description": "Apartment reviews that people can use.",
+  "repository": "https://github.com/vu-cs3892-22s/apartmate.git",
+  "author": "Apartmate Team",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "yarn build",
+    "start:backend": "yarn workspace backend start",
+    "start:frontend": "yarn workspace frontend start",
+    "dev": "yarn workspace shared dev & yarn workspace backend dev & yarn workspace frontend dev"
+  },
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend",
+    "packages/shared",
+    "packages/data-collection/yelp"
+  ],
+  "packageManager": "yarn@3.1.1",
+  "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^6",
+    "parse-address-string": "^0.0.3",
+    "react-hook-form": "^7.27.1",
+    "yarn": "^1.22.18"
+  }
+}
