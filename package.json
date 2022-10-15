@@ -1,9 +1,9 @@
 {
-  "name": "apartmate",
+  "name": "careermate",
   "version": "1.0.0",
-  "description": "Apartment reviews that people can use.",
-  "repository": "https://github.com/vu-cs3892-22s/apartmate.git",
-  "author": "Apartmate Team",
+  "description": "website for Yale students to connect to career opportunities",
+  "repository": "git@github.com:yuzheww/yale-careermate.git",
+  "author": "CareerMate Team",
   "license": "MIT",
   "private": true,
   "scripts": {

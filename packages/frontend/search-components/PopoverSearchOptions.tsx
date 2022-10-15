@@ -40,7 +40,7 @@ export default function PopoverSearchOptions({setBuildingName} : Props) {
                 <Input
                     size={"md"}
                     bg={"gray.50"}
-                    placeholder={"Building Name"}
+                    placeholder={"Name"}
                     color={"black"}
                     value={searchTerm}
                     onFocus={() => setSearchFocused(true)}
