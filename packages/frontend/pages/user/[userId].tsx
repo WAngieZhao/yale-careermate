@@ -6,12 +6,8 @@ import Link from 'next/link';
 import CoreLayout from "../../components/coreLayout";
 import NavBar from '../../shared-components/NavBar';
 import {Heading, Button, Text, HStack, Spacer, Divider, Container, useToast} from '@chakra-ui/react';
-import ReviewList from "../../components/ReviewList";
 import {Box} from "@chakra-ui/react"
-import ScoreTags from "../../building-components/ScoreTags";
-import FeatureTag from "../../building-components/FeatureTag";
 
-// const url = 'http://localhost:3000/buildings/'
 
 export default function DisplayUser() {
     const router = useRouter()

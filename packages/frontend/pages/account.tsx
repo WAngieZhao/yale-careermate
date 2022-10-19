@@ -28,7 +28,7 @@ import { Avatar } from "@chakra-ui/react";
 import { LockIcon, InfoOutlineIcon, EditIcon } from "@chakra-ui/icons";
 import CoreLayout from "../components/coreLayout";
 import useUser from "../components/useUser";
-import SingleReview from "../components/SingleReview";
+// import SingleReview from "../components/SingleReview";
 
 export default function UserPage() {
 	const router = useRouter();
@@ -165,7 +165,7 @@ const FormatReview = (reviews : any) => {
 	return reviews.reviews.map ((review : any, index : number) => {
 		return (
 			<Box key={index}>
-				<SingleReview review={review} key={index}/>
+				{/*<SingleReview review={review} key={index}/>*/}
 			</Box>
 		)
 	})

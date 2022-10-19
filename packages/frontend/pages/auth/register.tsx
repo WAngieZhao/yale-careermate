@@ -18,10 +18,8 @@ import {useRouter} from 'next/router';
 import React, {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import logo from '../../assets/apartmate_full_logo.png';
-// import ApartmateLogo from "../../components/apartmateLogo";
 import useUser from "../../components/useUser";
 import styles from '../../styles/Home.module.css'
-import hero from "../../assets/graphic_hero_2_green.png";
 import CareermateLogo from "../../components/careermateLogo";
 
 interface SubmitValues {
