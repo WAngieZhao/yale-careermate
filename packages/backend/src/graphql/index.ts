@@ -1,6 +1,3 @@
-/**
- * Created by jovialis (Dylan Hanson) on 2/4/22.
- */
 
 // import {mergeResolvers, mergeTypeDefs} from "@graphql-tools/merge";
 // import {UserResolvers, UserTypeDefs} from "./definitions/user.js";

@@ -8,6 +8,7 @@ import {useRouter} from 'next/router';
 // Chakra
 import {Button, Input, Box, Heading, Container} from '@chakra-ui/react';
 import BuildingDrawer from "../building-components/BuildingDrawer";
+import GetUsers from "../search-components/GetUsers";
 
 export default function Search() {
     const [searchQuery, changeQuery] = useState("")
@@ -17,7 +18,7 @@ export default function Search() {
         <CoreLayout>
             <Container maxW={"container.lg"}>
                 {/*<BuildingDrawer/>*/}
-                <GetBuildings props={query}/>
+                <GetUsers props={query}/>
             </Container>
         </CoreLayout>
     );

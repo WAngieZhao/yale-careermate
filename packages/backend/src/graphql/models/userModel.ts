@@ -3,10 +3,14 @@ import pkg from 'mongoose';
 const {Schema, model} = pkg;
 
 export interface IUser {
-    userName: string
-    year?: string
-    reviews: string[]
-    auths: string[]
+    id: string
+    name: string
+    email: string
+    picture: string
+
+    // year?: string
+    // reviews: string[]
+    // auths: string[]
 }
 
 const userSchema = new Schema({
@@ -14,7 +18,8 @@ const userSchema = new Schema({
         type: String,
         required: true,
         lowercase: true,
-        unique: true
+        unique: true,
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     name: {
         type: String,
@@ -31,13 +36,20 @@ const userSchema = new Schema({
     contact_email: {
         type: String,
         lowercase: true,
-        unique: true
-    },
-    status: {
-        type: String,
+        default: '',
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     company: {
         type: String,
+        default: ''
+    },
+    status: {
+        type: Boolean,
+        default: false
+    },
+    picture: {
+        type: String,
+        default: ""
     }
 }, {
     // collection: 'users'

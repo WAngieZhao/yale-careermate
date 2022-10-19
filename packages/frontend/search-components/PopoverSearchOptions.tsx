@@ -11,27 +11,28 @@ import {
 
 import useBuildingAutocomplete from "../components/useBuildingAutocomplete";
 import NextLink from "next/link";
+import useUserAutocomplete from "../components/useUserAutocomplete";
 
 type Props = {
-    setBuildingName: Function
+    setUserName: Function
 }
 
 
-export default function PopoverSearchOptions({setBuildingName} : Props) {
-    const {searchTerm, setSearchTerm, buildings} = useBuildingAutocomplete(3);
+export default function PopoverSearchOptions({setUserName} : Props) {
+    const {searchTerm, setSearchTerm, users} = useUserAutocomplete(3);
     const [searchFocused, setSearchFocused] = useState(false);
 
 
     const handleBuildingNameChange = (e: string) => {
         console.log(e)
         setSearchTerm(e);
-        setBuildingName(e);
+        setUserName(e);
     }
 
 
     return (
         <Popover
-            isOpen={searchFocused && buildings.length > 0}
+            isOpen={searchFocused && users.length > 0}
             autoFocus={false}
             closeDelay={1000}
             matchWidth
@@ -66,8 +67,8 @@ export default function PopoverSearchOptions({setBuildingName} : Props) {
                         divider={<Divider/>}
                         justifyContent={"flex-start"} alignItems={"flex-start"}
                     >
-                        {buildings.map((b, index) =>
-                            <NextLink key={index} href={`/buildings/${b.id}`}>
+                        {users.map((b, index) =>
+                            <NextLink key={index} href={`/user/${b.id}`}>
                                 <LinkBox
                                     w={"100%"}
                                     py={2}
@@ -80,12 +81,12 @@ export default function PopoverSearchOptions({setBuildingName} : Props) {
                                     }}
                                 >
                                     <HStack spacing={5} w={"100%"} justifyItems={"stretch"}>
-                                        <Avatar size={"xs"}/>
+                                        <Avatar size={"xs"} name={b.name}/>
                                         <Text fontWeight={"bold"}>
-                                            {b.buildingName}
+                                            {b.name}
                                         </Text>
                                         <Text textAlign={"right"} flexGrow={1}>
-                                            {b.buildingAddress}
+                                            {b.company}
                                         </Text>
                                     </HStack>
                                 </LinkBox>

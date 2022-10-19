@@ -18,10 +18,10 @@ const GlobalStyles = css`
 `;
 
 const theme = extendTheme({
-	fonts: {
-		heading: "Hind, sans-serif",
-		body: "Hind, sans-serif"
-	},
+	// fonts: {
+	// 	heading: "Hind, sans-serif",
+	// 	body: "Hind, sans-serif"
+	// },
 	colors: {
 		brand: {
 			50: "#addbe8",
