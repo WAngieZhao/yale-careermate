@@ -73,7 +73,7 @@ export const GoogleSSO = (props : LoginProps) => {
                         console.log(res.data.googleLogin)
                         console.log('Logged in—pushing to login');
                         // router.push(`/user/${res.data.googleLogin.id}`);
-                        router.reload()
+                        router.push('/search')
                     }).catch(err => {
                         console.log(err);
                     });
