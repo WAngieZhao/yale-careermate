@@ -11,13 +11,14 @@ type LoginProps = {
 }
 
 // reference: https://blog.prototypr.io/how-to-build-google-login-into-a-react-app-and-node-express-api-821d049ee670
-export const GoogleLoginButton = (props : LoginProps) => {
+export const GoogleSSO = (props : LoginProps) => {
     const router = useRouter();
     const toast = useToast();
 
     const [loginWithGoogle, {loading: loginLoading}] = useMutation(gql`
-        mutation LoginWithGoogle($token: String!) {
-            loginWithGoogle(token: $token) {
+        mutation googleLogin($token: String!) {
+            googleLogin(token: $token) {
+                id
                 email
             }
         }
@@ -57,9 +58,6 @@ export const GoogleLoginButton = (props : LoginProps) => {
     return (
         <span className="authButton">
             <GoogleLogin
-                // clientId={process.env.NEXT_GOOGLE_CLIENT_ID}
-                // NEXT_GOOGLE_CLIENT_ID=539193876-qgqjn7o8gkgui54a86c9sdpbmo2o2lnv.apps.googleusercontent.com
-
                 clientId={(String(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID))}
                 // render={renderProps => (
                 //     <button onClick={renderProps.onClick} disabled={renderProps.disabled}>
@@ -71,16 +69,16 @@ export const GoogleLoginButton = (props : LoginProps) => {
                         variables: {
                             token: res.tokenObj.id_token
                         }
-                    }).then((user) => {
-                        console.log(user)
+                    }).then((res) => {
+                        console.log(res.data.googleLogin)
                         console.log('Logged in—pushing to login');
-                        router.push(`/account`);
+                        // router.push(`/user/${res.data.googleLogin.id}`);
+                        router.reload()
                     }).catch(err => {
                         console.log(err);
                     });
                 }}
                 onFailure={(err) => {
-                    console.log(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID)
                     console.log(err);
                 }}
                 // cookiePolicy={'single_host_origin'}
@@ -90,22 +88,7 @@ export const GoogleLoginButton = (props : LoginProps) => {
 };
 
 
-// export const GoogleLogoutButton = () => {
-//
-//     const onSuccess = () => {
-//         console.log("Successfully logged out");
-//     }
-//
-//     return (
-//         <span>
-//             <GoogleLogout
-//                 // clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-//                 clientId={"xxx"}
-//                 buttonText="Logout"
-//                 onLogoutSuccess={onSuccess}
-//             />
-//         </span>);
-// };
+
 
 
 

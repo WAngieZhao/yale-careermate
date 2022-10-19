@@ -4521,20 +4521,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apartmate@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "apartmate@workspace:."
-  dependencies:
-    "@chakra-ui/react": ^1.8.6
-    "@emotion/react": ^11
-    "@emotion/styled": ^11
-    framer-motion: ^6
-    parse-address-string: ^0.0.3
-    react-hook-form: ^7.27.1
-    yarn: ^1.22.18
-  languageName: unknown
-  linkType: soft
-
 "apollo-datasource@npm:^3.3.1":
   version: 3.3.1
   resolution: "apollo-datasource@npm:3.3.1"
@@ -5220,6 +5206,20 @@ __metadata:
   checksum: 789076fb889bd03515c4a3e2bfa09cd5b28439645173445147eb6ddfd8105c755e46dfda3de4b75edd2b71490864188bbfe8a2efe920c7998960b4e98916f518
   languageName: node
   linkType: hard
+
+"careermate@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "careermate@workspace:."
+  dependencies:
+    "@chakra-ui/react": ^1.8.6
+    "@emotion/react": ^11
+    "@emotion/styled": ^11
+    framer-motion: ^6
+    parse-address-string: ^0.0.3
+    react-hook-form: ^7.27.1
+    yarn: ^1.22.18
+  languageName: unknown
+  linkType: soft
 
 "caseless@npm:^0.11.0":
   version: 0.11.0

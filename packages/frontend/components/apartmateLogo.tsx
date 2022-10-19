@@ -3,7 +3,7 @@
  */
 
 import {Box, Heading, HStack, Icon} from "@chakra-ui/react";
-import Logo from "../assets/icon.svg";
+import Logo from "../assets/cm_icon.svg";
 
 export interface IApartmateLogoProps {
 	fill: string
@@ -27,7 +27,7 @@ export default function ApartmateLogo(props: IApartmateLogoProps) {
 					size={"md"}
 					color={props.fill}
 				>
-					apartmate
+					careermate
 				</Heading>
 			</Box>
 		</HStack>

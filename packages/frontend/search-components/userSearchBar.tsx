@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import {useRouter} from 'next/router';
 import PopoverSearchOptions from "./PopoverSearchOptions";
+import {SearchIcon} from "@chakra-ui/icons";
 
 
 export default function UserSearchBar() {
@@ -45,10 +46,10 @@ export default function UserSearchBar() {
         <Box w={"full"}>
             <form onSubmit={e => submitForm(e)}>
                 <HStack>
-                    <FormControl w={"80%"}>
-                        <PopoverSearchOptions setBuildingName={setUserName}/>
+                    <FormControl w={"90%"}>
+                        <PopoverSearchOptions setUserName={setUserName}/>
                     </FormControl>
-                    <Button colorScheme="brand" type="submit" w={"20%"}>Search</Button>
+                    <Button colorScheme="brand" type="submit" w={"10%"}><SearchIcon/></Button>
                 </HStack>
             </form>
             {msg ? <p>{msg}</p> : <p></p>}

@@ -7,39 +7,58 @@ import {gql, useMutation, useQuery} from "@apollo/client";
 export interface IUser {
 	id: string
 	email: string
-	thumbnail?: string
-	reviews: string[] // TODO
+	name: string
+	picture: string
+	// thumbnail?: string
+	// reviews: string[] // TODO
 }
 
 export default function useUser() {
-    const {data, loading, error, refetch} = useQuery(gql`
-        query GetMe {
-            me {
+    // const {data, loading, error, refetch} = useQuery(gql`
+    //     query GetMe {
+    //         me {
+	// 			id
+    //             email
+	//             thumbnail
+	// 			reviews {
+	// 				building {
+	// 				  buildingName
+	// 				}
+	// 				comment
+	// 				upVotes
+	// 				downVotes
+	// 				bedNum
+	// 				bathNum
+	// 				leaseLen
+	// 				rent
+	// 				totalScore
+	// 				envScore
+	// 				secScore
+	// 			  }
+    //         }
+    //     }
+	// `, {
+	// 	fetchPolicy: "network-only"
+	// });
+
+	const {data, loading, error, refetch} = useQuery(gql`
+        query GetCurrentUser {
+            currentUser {
 				id
                 email
-	            thumbnail
-				reviews {
-					building {
-					  buildingName
-					}
-					comment
-					upVotes
-					downVotes
-					bedNum
-					bathNum
-					leaseLen
-					rent
-					totalScore
-					envScore
-					secScore
-				  }
+	            name
+	            picture
             }
         }
 	`, {
 		fetchPolicy: "network-only"
 	});
-
-	const user: IUser | undefined = (data && data.me) && (<IUser> data.me);
+	// console.log(data)
+	// console.log(data.currentUser)
+	// console.log(error)
+	// const user: IUser | undefined = (data && data.currentUser) && (<IUser> data.me);
+	const user: IUser | undefined = (data && data.currentUser) && (<IUser> data.currentUser);
+	// console.log(user)
 
     const [logout] = useMutation(gql`
         mutation Logout {

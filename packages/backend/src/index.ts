@@ -1,7 +1,4 @@
-// /**
-//  * Created by jovialis (Dylan Hanson) on 1/30/22.
-//  */
-//
+
 // import {ServerBoilerplate} from "express-server-boilerplate";
 // import {ApolloServer} from "apollo-server";
 // import {config} from "./config.js";
@@ -32,10 +29,6 @@
 // })();
 //
 
-
-/**
- * Created by jovialis (Dylan Hanson) on 1/30/22.
- */
 
 import {ServerBoilerplate} from "express-server-boilerplate";
 import {ApolloServer} from "apollo-server";

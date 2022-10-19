@@ -10,7 +10,7 @@ import {buildingModel} from "../graphql/models/buildingModel.js";
 import {faker} from "@faker-js/faker";
 import {userModel} from "../graphql/models/userModel.js";
 
-const GENERATE_COUNT = 50;
+const GENERATE_COUNT = 20;
 
 (async function () {
 
@@ -34,9 +34,11 @@ async function generateUsers(retries = 0) {
 
 	try {
 		await userModel.create({
-			userName: faker.word.adjective() + faker.word.noun(),
+			name: faker.word.adjective() + faker.word.noun(),
 			email: faker.internet.email(),
-			year: "2022"
+			contact_email: faker.internet.email(),
+			company: faker.company.companyName(),
+			picture: "https://cdn.britannica.com/90/7490-004-BAD4AA72/Flag-China.jpg"
 		});
 	} catch (e) {
 		// try again

@@ -1,7 +1,3 @@
-/**
- * Created by jovialis (Dylan Hanson) on 4/8/22.
- */
-
 import {SearchIcon} from "@chakra-ui/icons";
 import {
 	Avatar,
@@ -47,7 +43,9 @@ import {List, Map, Search, User} from "react-feather";
 import NextLink from "next/link";
 import ApartmateLogo from "./apartmateLogo";
 import useBuildingAutocomplete from "./useBuildingAutocomplete";
-import useUser from "./useUser";
+import useUser, {IUser} from "./useUser";
+import CareermateLogo from "./careermateLogo";
+import useUserAutocomplete from "./useUserAutocomplete";
 
 export interface ICoreHeaderProps {
 
@@ -58,7 +56,7 @@ export default function CoreHeader(props: ICoreHeaderProps) {
 	const toaster = useToast();
 
 	// Autocomplete for the search bar
-	const {searchTerm, setSearchTerm, buildings} = useBuildingAutocomplete(3);
+	const {searchTerm, setSearchTerm, users} = useUserAutocomplete(3);
 	const [searchFocused, setSearchFocused] = useState(false);
 
 	// User for the header
@@ -77,6 +75,15 @@ export default function CoreHeader(props: ICoreHeaderProps) {
 			},
 		})
 	}
+	// user = (<IUser> user)
+	// const usere: IUser | undefined = user && ((IUser) user);
+	// user  = (IUser) user
+	// console.log('in the header')
+	// console.log(user)
+	// if (user) {
+	// 	const ni: IUser = (user as IUser)
+	// 	console.log(`user is HERE ${ni.email}`)
+	// }
 
 	return <>
 		<Box
@@ -91,7 +98,7 @@ export default function CoreHeader(props: ICoreHeaderProps) {
 				>
 					<NextLink href={'/'}>
 						<Link>
-							<ApartmateLogo fill={"brand.50"}/>
+							<CareermateLogo fill={"brand.50"}/>
 						</Link>
 					</NextLink>
 					<HStack
@@ -99,7 +106,7 @@ export default function CoreHeader(props: ICoreHeaderProps) {
 						spacing={0}
 					>
 						<Popover
-							isOpen={searchFocused && buildings.length > 0}
+							isOpen={searchFocused && users.length > 0}
 							autoFocus={false}
 							closeDelay={1000}
 							matchWidth
@@ -158,10 +165,10 @@ export default function CoreHeader(props: ICoreHeaderProps) {
 										divider={<Divider/>}
 										justifyContent={"flex-start"} alignItems={"flex-start"}
 									>
-										{buildings.map((b, index) =>
+										{users.map((b, index) =>
 											<NextLink
 												key={index}
-												href={`/buildings/${b.id}`}
+												href={`/user/${b.id}`}
 											>
 												<LinkBox
 													w={"100%"}
@@ -174,16 +181,16 @@ export default function CoreHeader(props: ICoreHeaderProps) {
 														}
 													}}
 													onClick={() => {
-														router.push(`/buildings/${b.id}`);
+														router.push(`/user/${b.id}`);
 													}}
 												>
 													<HStack spacing={5} w={"100%"} justifyItems={"stretch"}>
-														<Avatar size={"xs"}/>
+														<Avatar size={"xs"} name={b.name}/>
 														<Text fontWeight={"bold"}>
-															{b.buildingName}
+															{b.name}
 														</Text>
 														<Text textAlign={"right"} flexGrow={1}>
-															{b.buildingAddress}
+															{b.company}
 														</Text>
 													</HStack>
 												</LinkBox>
@@ -221,7 +228,7 @@ export default function CoreHeader(props: ICoreHeaderProps) {
                             />
 						</>}
 						{(!userLoading && !userError && !user) && <>
-                            <NextLink href={'/auth/login'}>
+                            <NextLink href={'/'}>
                                 <Link>
 	                                <Button
 		                                aria-label={"login"}
@@ -248,18 +255,21 @@ export default function CoreHeader(props: ICoreHeaderProps) {
                                     variant={"unstyled"}
                                     color={"brand.50"}
                                 >
-	                                <Avatar size={"sm"} name={user.email} src={user.thumbnail}/>
+	                                <Avatar size={"sm"} name={user.name} src={user.picture}/>
                                 </MenuButton>
                                 <MenuList>
-                                    <MenuGroup title={user.email}>
-	                                    <Link href={"/account"}>
+                                    <MenuGroup title={user?.email}>
+	                                    <Link href={`/user/${user.id}`}>
                                             <MenuItem icon={<Icon as={User} height={5} width={"auto"}/>}>
                                                 Account
                                             </MenuItem>
 	                                    </Link>
-                                        <MenuItem icon={<Icon as={List} height={5} width={"auto"}/>}>
-                                            Reviews
-                                        </MenuItem>
+										{/* TODO: edit profile*/}
+										<Link href={`/edit/${user.id}`}>
+											<MenuItem icon={<Icon as={User} height={5} width={"auto"}/>}>
+												Edit
+											</MenuItem>
+										</Link>
                                     </MenuGroup>
 	                                <MenuDivider/>
 	                                <Box px={2}>
