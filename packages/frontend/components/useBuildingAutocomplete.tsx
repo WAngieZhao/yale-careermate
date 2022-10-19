@@ -1,32 +1,27 @@
-/**
- * Created by jovialis (Dylan Hanson) on 4/12/22.
- */
-
-
 import {gql, useLazyQuery} from '@apollo/client';
 import {useRouter} from 'next/router';
 import React, {useEffect, useState} from 'react';
 
 export interface IAutocompleteResult {
-	id: string;
-	buildingName: string;
-	buildingAddress: string;
+    id: string;
+    buildingName: string;
+    buildingAddress: string;
 }
 
 export default function useBuildingAutocomplete(results: number) {
-	const router = useRouter();
+    const router = useRouter();
 
-	const [searchTerm, setSearchTerm] = useState('');
-	const [autocompleteResults, setAutocompleteResults] = useState<IAutocompleteResult[]>([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [autocompleteResults, setAutocompleteResults] = useState<IAutocompleteResult[]>([]);
 
     // Load an existing query from the search bar
-	useEffect(() => {
-		if (router.isReady) {
-			let name = router.query.searchTerm ? router.query.searchTerm.toString() : "";
-			// console.log(name)
-			setSearchTerm(name);
-		}
-	}, [router])
+    useEffect(() => {
+        if (router.isReady) {
+            let name = router.query.searchTerm ? router.query.searchTerm.toString() : "";
+            // console.log(name)
+            setSearchTerm(name);
+        }
+    }, [router])
 
     // Query to look for autocomplete options
     const [getBuildingName] = useLazyQuery(gql`
@@ -41,32 +36,32 @@ export default function useBuildingAutocomplete(results: number) {
 
 
     // Update the autocomplete results
-	useEffect(() => {
-		// Ignore null results
-		if (searchTerm.trim().length === 0) {
-			setAutocompleteResults([]);
-			return;
-		}
+    useEffect(() => {
+        // Ignore null results
+        if (searchTerm.trim().length === 0) {
+            setAutocompleteResults([]);
+            return;
+        }
 
-		getBuildingName({
-			variables: {
-				buildingName: searchTerm,
-			}
-		})
-			.then((result) => {
-				console.log("creating options")
-				setAutocompleteResults(result.data.buildingSearch.slice(0, results));
-			})
-			.catch(e => {
-				console.log(e.message)
-			})
-	}, [searchTerm]);
+        getBuildingName({
+            variables: {
+                buildingName: searchTerm,
+            }
+        })
+            .then((result) => {
+                console.log("creating options")
+                setAutocompleteResults(result.data.buildingSearch.slice(0, results));
+            })
+            .catch(e => {
+                console.log(e.message)
+            })
+    }, [searchTerm]);
 
-	return {
-		buildings: autocompleteResults,
-		searchTerm,
-		setSearchTerm
-	};
+    return {
+        buildings: autocompleteResults,
+        searchTerm,
+        setSearchTerm
+    };
 }
 
 // export default function BuildingSearchBar() {

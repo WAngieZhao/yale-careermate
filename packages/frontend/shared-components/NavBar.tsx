@@ -1,7 +1,3 @@
-/**
- * Created by yuzheww (Yuzhe Wang) on 03/08/22.
- */
-
 import {Box, Button, HStack} from '@chakra-ui/react';
 import Image from "next/image";
 import Link from "next/link";

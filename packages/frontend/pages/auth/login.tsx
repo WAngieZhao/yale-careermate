@@ -17,12 +17,11 @@ import {useRouter} from "next/router";
 import React, {useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
 import logo from '../../assets/apartmate_full_logo.png';
-import ApartmateLogo from "../../components/apartmateLogo";
 import useUser from "../../components/useUser";
-import {OauthBar} from '../../front-auth/OauthBar';
 import PasswordInput from '../../shared-components/PasswordInput';
 import styles from '../../styles/Home.module.css'
 import hero from "../../assets/graphic_discussion.png";
+import CareermateLogo from "../../components/careermateLogo";
 
 interface ILoginValues {
     email: string
@@ -110,7 +109,7 @@ export default function Login() {
                     <Box bg={"brand.500"} py={5}>
                         <Container maxW={"container.xs"}>
                             <Link href={"/"}>
-                                <ApartmateLogo fill={"brand.50"}/>
+                                <CareermateLogo fill={"brand.50"}/>
                             </Link>
                         </Container>
                     </Box>
@@ -152,7 +151,7 @@ export default function Login() {
                                 <Link color='brand.400'>Forgot password?</Link>
                             </NextLink>
 
-                            <OauthBar/>
+                            {/*<OauthBar/>*/}
                             <p>New to ApartMate?
                                 <b> <Link href="/auth/register" color='brand.400'>Sign up</Link></b>
                             </p>

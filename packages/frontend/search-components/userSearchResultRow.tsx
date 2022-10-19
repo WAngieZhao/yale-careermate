@@ -1,13 +1,9 @@
-/**
- * Created by yuzheww (Yuzhe Wang) on 2/28/22.
- */
 import Image from 'next/image'
 import {Text, Box, HStack, Container, Button, Image as ChakraImage} from "@chakra-ui/react"
 import Link from "next/link";
 import {ArrowForwardIcon} from '@chakra-ui/icons'
 import image from "../assets/building_image.png";
 import React from 'react';
-
 
 
 type UserBasicProps = {

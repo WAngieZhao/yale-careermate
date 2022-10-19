@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {gql, useLazyQuery} from '@apollo/client';
-import BuildingBasicForm from "./BuildingBasicForm";
 import Link from 'next/link';
 import {Container, Button, FormControl, FormLabel, Box, Input, Text, HStack, Tag} from "@chakra-ui/react";
 

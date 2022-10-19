@@ -1,7 +1,3 @@
-/**
- * Created by jovialis (Dylan Hanson) on 2/4/22.
- */
-
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
 import {createUploadLink} from "apollo-upload-client";
 
