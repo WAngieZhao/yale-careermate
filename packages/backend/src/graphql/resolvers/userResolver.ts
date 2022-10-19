@@ -1,6 +1,4 @@
 import {ApolloError, AuthenticationError} from "apollo-server-express";
-import uploadS3File from "../../utils/uploadS3File.js";
-import {authModel, googleAuthModel} from "../models/authModel.js";
 import {finished} from 'stream/promises';
 import AWS from "aws-sdk"
 import {nanoid} from "nanoid";

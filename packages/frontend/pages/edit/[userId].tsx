@@ -6,12 +6,7 @@ import Link from 'next/link';
 import CoreLayout from "../../components/coreLayout";
 import NavBar from '../../shared-components/NavBar';
 import {Heading, Button, Text, HStack, Spacer, Divider, Container, useToast} from '@chakra-ui/react';
-import ReviewList from "../../components/ReviewList";
 import {Box} from "@chakra-ui/react"
-import ScoreTags from "../../building-components/ScoreTags";
-import FeatureTag from "../../building-components/FeatureTag";
-
-// const url = 'http://localhost:3000/buildings/'
 
 export default function DisplayUser() {
     const router = useRouter()
@@ -52,7 +47,7 @@ export default function DisplayUser() {
                 {/*<a onClick={() => router.back()}>&#8592; Back to search results</a>*/}
                 {/*TODO: design edit profile form*/}
                 {!loading && !error && data && <><Box>{data.user.email}</Box>
-                <Box>{data.user.name}</Box></>}
+                    <Box>{data.user.name}</Box></>}
 
                 {/*<HStack wrap={"wrap"}>*/}
                 {/*    <Heading my={3} as='h1' size='3xl'>{building.buildingName}</Heading> <Spacer/>*/}

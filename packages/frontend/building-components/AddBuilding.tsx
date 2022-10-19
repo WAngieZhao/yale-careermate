@@ -1,7 +1,3 @@
-/**
- * Created by yuzheww (Yuzhe Wang) on 2/28/22.
- */
-
 import React, {useState} from 'react';
 import {useMutation, gql} from '@apollo/client';
 import {useRouter} from "next/router";

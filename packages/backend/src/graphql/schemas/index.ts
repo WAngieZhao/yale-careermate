@@ -1,9 +1,6 @@
 import {userSchema} from './userSchema.js';
-import {reviewSchema} from './reviewSchema.js';
-import {authSchema} from './authSchema.js';
 import { gql } from 'apollo-server';
 import {mergeTypeDefs} from "@graphql-tools/merge";
-import {buildingSchema} from "./buildingSchema.js";
 
 const linkSchema = `
   scalar Upload
@@ -24,9 +21,6 @@ const linkSchema = `
 
 export const schemas = mergeTypeDefs([
     linkSchema,
-    userSchema,
-    reviewSchema,
-    authSchema,
-    buildingSchema
+    userSchema
 ]);
 // export default [linkSchema, userSchema, reviewSchema];

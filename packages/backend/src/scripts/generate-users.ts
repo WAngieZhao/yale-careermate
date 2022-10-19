@@ -2,7 +2,6 @@ import {config as loadDotEnv} from "dotenv";
 import mongoose from "mongoose";
 import {config} from "../config.js";
 
-import {buildingModel} from "../graphql/models/buildingModel.js";
 import {faker} from "@faker-js/faker";
 import {userModel} from "../graphql/models/userModel.js";
 
