@@ -20,7 +20,6 @@ import {useRouter} from 'next/router';
 import React, {useEffect, useRef} from 'react';
 import {useForm} from 'react-hook-form';
 import logo from '../assets/apartmate_full_logo.png';
-import {OauthBar} from '../front-auth/OauthBar';
 import PasswordInput from '../shared-components/PasswordInput';
 import styles from '../styles/Home.module.css'
 
@@ -62,12 +61,12 @@ export default function UserPage() {
 		<CoreLayout>
 			<Container maxW={"container.lg"}>
 			<Box bg="gray.100" borderRadius="20" mb="5%" mt="5%" p="5%">
-				{userLoading && <Spinner/>}
-					{user && user.email && <>
-						<Avatar size="lg" name={user.email} src={user.thumbnail}/>
-						<Heading>Welcome, {user.email}</Heading>
-						{/* <Text>Current Residence: Elliston23</Text> */}
-					</>}
+				{/*{userLoading && <Spinner/>}*/}
+				{/*	{user && user.email && <>*/}
+				{/*		<Avatar size="lg" name={user.email} src={user.thumbnail}/>*/}
+				{/*		<Heading>Welcome, {user.email}</Heading>*/}
+				{/*		/!* <Text>Current Residence: Elliston23</Text> *!/*/}
+				{/*	</>}*/}
 			</Box>
 			<Heading>Account</Heading>
 			<Text>Manage your account and settings here.</Text>
@@ -125,16 +124,16 @@ export default function UserPage() {
 						</>}
 					</TabPanel>
 
-					<TabPanel>
-						<Heading>Your reviews</Heading>
-						<Text>Manage your posts here (deletion and editing coming soon).</Text>
-						{!user?.reviews && <Text>Looks like you havent created any posts yet!</Text>}
-						{user?.reviews &&
-							<Box>
-								<FormatReview reviews={user.reviews} />
-							</Box>
-						}
-					</TabPanel>
+					{/*<TabPanel>*/}
+					{/*	<Heading>Your reviews</Heading>*/}
+					{/*	<Text>Manage your posts here (deletion and editing coming soon).</Text>*/}
+					{/*	{!user?.reviews && <Text>Looks like you havent created any posts yet!</Text>}*/}
+					{/*	{user?.reviews &&*/}
+					{/*		<Box>*/}
+					{/*			<FormatReview reviews={user.reviews} />*/}
+					{/*		</Box>*/}
+					{/*	}*/}
+					{/*</TabPanel>*/}
 
 					<TabPanel>
 						<Heading>Login &#38; Security</Heading>

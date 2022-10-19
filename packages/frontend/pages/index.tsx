@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import BuildingSearchBar from '../building-components/BuildingSearchBar'
 import NavBar from "../shared-components/NavBar";
 import icon from "../assets/apartmate_icon.png";
 import logo from "../assets/apartmate_logo.png";
@@ -18,8 +17,8 @@ const Home: NextPage = () => {
             <Head>
                 <title>CareerMate</title>
                 <meta name="description" content="Yale CareerMate website"/>
-                {/*<link rel="icon" href="/favicon.ico"/>*/}
-                <link rel="icon" href="/cm_logo.ico"/>
+                <link rel="icon" href="/favicon.ico"/>
+                {/*<link rel="icon" href="/cm_logo.ico"/>*/}
             </Head>
             <NavBar/>
             <Homepage />

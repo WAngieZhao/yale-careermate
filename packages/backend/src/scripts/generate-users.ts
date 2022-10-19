@@ -1,7 +1,3 @@
-/**
- * Created by jovialis (Dylan Hanson) on 3/18/22.
- */
-
 import {config as loadDotEnv} from "dotenv";
 import mongoose from "mongoose";
 import {config} from "../config.js";

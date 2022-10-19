@@ -4,7 +4,6 @@
 
 import React, {useState} from 'react';
 import {useMutation, gql} from '@apollo/client';
-import GoogleMapSearchBar from "./GoogleMapSearchBar";
 import {useRouter} from "next/router";
 import {Box, VStack, Heading, FormLabel, FormControl, FormErrorMessage} from "@chakra-ui/react"
 
@@ -116,11 +115,7 @@ export default function AddBuilding() {
                     <VStack mx={"15%"} p={5}>
                         <FormControl isRequired>
                             <FormLabel htmlFor="buildingAddress">Building Address</FormLabel>
-                            <GoogleMapSearchBar
-                                width={'100%'}
-                                setAddress={setBuildingAddress}
-                                setAddressComponents={addressSelected}
-                            />
+
                         </FormControl>
 
                         <FormControl>

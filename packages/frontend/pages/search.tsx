@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import CoreLayout from "../components/coreLayout";
 import NavBar from "../shared-components/NavBar";
-import BuildingSearchBar from '../building-components/BuildingSearchBar';
 import GetBuildings from '../building-components/GetBuildings';
 import {useRouter} from 'next/router';
 
