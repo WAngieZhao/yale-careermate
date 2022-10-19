@@ -58,7 +58,7 @@ export default function useUser() {
 
     const [logout] = useMutation(gql`
         mutation Logout {
-            logout {
+            googleLogout {
                 email
             }
         }
