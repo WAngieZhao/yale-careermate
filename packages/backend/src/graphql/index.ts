@@ -1,15 +1,14 @@
-
 // import {mergeResolvers, mergeTypeDefs} from "@graphql-tools/merge";
 // import {UserResolvers, UserTypeDefs} from "./definitions/user.js";
 import {RestHandler} from "express-server-boilerplate";
 import {ApolloServer} from "apollo-server-express";
-import {ApolloServerPluginLandingPageDisabled, ApolloServerPluginLandingPageGraphQLPlayground} from "apollo-server-core";
+import {
+    ApolloServerPluginLandingPageDisabled,
+    ApolloServerPluginLandingPageGraphQLPlayground
+} from "apollo-server-core";
 import {config} from "../config.js";
 import mongoose from 'mongoose';
 import {userModel} from './models/userModel.js';
-import {reviewModel} from './models/reviewModel.js';
-import {buildingModel} from './models/buildingModel.js';
-import {authModel} from "./models/authModel.js";
 import {schemas} from './schemas/index.js';
 import {resolvers} from './resolvers/index.js';
 import {graphqlUploadExpress} from "graphql-upload";
@@ -37,15 +36,12 @@ export const graphqlHandler: RestHandler = async app => {
         // dataSources: () => ({
         //
         // }),
-        context: async ({ req }) => {
+        context: async ({req}) => {
             return {
                 user: req.session.user,
                 session: req.session,
                 models: {
-                    userModel,
-                    reviewModel,
-                    authModel,
-                    buildingModel
+                    userModel
                 },
             };
         },
@@ -60,6 +56,7 @@ export const graphqlHandler: RestHandler = async app => {
 
     // Enable the server
     await server.start();
+    // add middleware
     server.applyMiddleware({
         app,
         cors: false, // we'll handle the CORS using our own plugin

@@ -1,4 +1,3 @@
-
 // import {ServerBoilerplate} from "express-server-boilerplate";
 // import {ApolloServer} from "apollo-server";
 // import {config} from "./config.js";
@@ -34,8 +33,6 @@ import {ServerBoilerplate} from "express-server-boilerplate";
 import {ApolloServer} from "apollo-server";
 import {config} from "./config.js";
 import {graphqlHandler} from "./graphql/index.js";
-import {googleAuthRouter} from "./oauth/googleAuthRouter.js";
-import {facebookAuthRouter} from "./oauth/facebookAuthRouter.js";
 import MongoStore from "connect-mongo";
 import session from "express-session";
 
@@ -68,9 +65,6 @@ import session from "express-session";
         }));
     });
 
-    server.handler(googleAuthRouter);
-
-    server.handler(facebookAuthRouter);
 
     // Base handler
     server.handler(app => {

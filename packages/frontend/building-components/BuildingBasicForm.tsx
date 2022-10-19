@@ -1,6 +1,3 @@
-/**
- * Created by yuzheww (Yuzhe Wang) on 2/28/22.
- */
 import Image from 'next/image'
 import {Text, Box, HStack, Container, Button, Image as ChakraImage} from "@chakra-ui/react"
 import Link from "next/link";
@@ -144,7 +141,7 @@ export default function BuildingBasicForm(props: BuildingBasicProps) {
                 </Box>
                 <Box w={350} py={3}>
                     {photos.length > 0 ?
-                        <ChakraImage width={350} height={"100%"} src={photos[0]} alt={"building image"}/>:
+                        <ChakraImage width={350} height={"100%"} src={photos[0]} alt={"building image"}/> :
                         <Image layout="responsive" src={image} alt={"building image"}/>}
                 </Box>
             </HStack>
