@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import React from 'react';
 import {useRouter} from 'next/router';
-import {useQuery, gql} from '@apollo/client';
+import {useQuery, gql, useMutation} from '@apollo/client';
 import Link from 'next/link';
 import CoreLayout from "../../components/coreLayout";
 import NavBar from '../../shared-components/NavBar';
@@ -13,6 +13,21 @@ export default function DisplayUser() {
     const {userId} = router.query
     // TODO: use toast to notify users that they cannot edit someone else's profile
     const toast = useToast();
+
+
+    const UPDATE_USER = gql`
+        mutation updateUserProfile($id: ID!, $name: String!, $contact_email: String!, $company: String!, $status: String!) {
+            updateUserProfile(id: $id, name: $name, contact_email: $contact_email, company: $company, status: $status) {
+                id
+                email
+                name
+                contact_email
+                status
+                company
+            }
+        }
+    `;
+
     const GET_USER = gql`
         query GetUser($userId: ID!) {
             user(id: $userId) {
@@ -27,11 +42,15 @@ export default function DisplayUser() {
         }
 	`;
 
+    // TODO: use this to update profile
+    const [updateProfile] = useMutation(UPDATE_USER);
+
     const {data, loading, error} = useQuery(GET_USER, {
         variables: {userId},
         skip: !router.isReady,
         nextFetchPolicy: "network-only"
     });
+
 
     // if (loading) return <p></p>;
     // if (error) return <p>There was an error loading the building data :( ${error.message}</p>;
@@ -45,7 +64,8 @@ export default function DisplayUser() {
         <CoreLayout>
             <Container maxW={"container.lg"}>
                 {/*<a onClick={() => router.back()}>&#8592; Back to search results</a>*/}
-                {/*TODO: design edit profile form*/}
+
+                {/*TODO: design edit profile form, MUST add code inside the following {}*/}
                 {!loading && !error && data && <><Box>{data.user.email}</Box>
                     <Box>{data.user.name}</Box></>}
 

@@ -1,4 +1,4 @@
-import {Box, Button, HStack} from '@chakra-ui/react';
+import {Box, Button, HStack, useToast} from '@chakra-ui/react';
 import Image from "next/image";
 import Link from "next/link";
 import icon from '../assets/cm_logo.png';

@@ -1,4 +1,4 @@
-import {ApolloError, AuthenticationError} from "apollo-server-express";
+import {ApolloError, AuthenticationError, ValidationError} from "apollo-server-express";
 import {finished} from 'stream/promises';
 import AWS from "aws-sdk"
 import {nanoid} from "nanoid";
@@ -6,6 +6,7 @@ import * as stream from "stream";
 import {userModel} from "../models/userModel.js";
 import {OAuth2Client} from "google-auth-library";
 import {config} from "../../config.js";
+// import {ValidationError} from "apollo-server-errors/src";
 
 
 export const userResolver = {
@@ -52,8 +53,22 @@ export const userResolver = {
             const user = await userModel.create({email, name, contact_email: email});
             return user;
         },
-        updateUserProfile: async (parent, {id, name, contact_email, company, status}, {models: {userModel}}, info) => {
-            // TODO: ValidationError for invalid email
+        // updateUserProfile: async (parent, {id, name, contact_email, company, status}, {models: {userModel}}, {session}) => {
+        updateUserProfile: async (parent, {id, name, contact_email, company, status}, {session}) => {
+            // console.log(session)
+            // validate user: a user can only edit his/her own profile
+            // TODO: test this
+            if (session.user && id != session.user.id) {
+                throw new AuthenticationError('You can only edit your profile.')
+            }
+
+            // validate new contact email
+            const new_email = contact_email
+            const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!re.test(new_email)) {
+                throw new ValidationError('Your new contact email should be a valid email address.')
+            }
+
             const user = await userModel.findByIdAndUpdate(id, {
                 name: name,
                 contact_email: contact_email,
@@ -80,13 +95,18 @@ export const userResolver = {
 
             let user = await userModel.findOne({email: payload.email}).exec();
             if (user == null) {
-                user = await userModel.create({
-                    email: payload.email,
-                    name: payload.name,
-                    contact_email: payload.email,
-                    picture: payload.picture
-                });
-                console.log('created profile for '+ user.email)
+                const email = payload.email
+                if (email.endsWith('@yale.edu')) {
+                    user = await userModel.create({
+                        email: payload.email,
+                        name: payload.name,
+                        contact_email: payload.email,
+                        picture: payload.picture
+                    });
+                    console.log('created profile for ' + user.email)
+                } else {
+                    throw new ValidationError('Please login with yale.edu email.')
+                }
             }
 
 
@@ -112,10 +132,11 @@ export const userResolver = {
             // session.user = user;
             // return user;
             session.user = user;
-            // console.log(session)
+            console.log(session)
             return user
         },
         googleLogout: async (parent, _, {user, session}) => {
+            console.log(session)
             session.user = undefined;
             return user;
         }
