@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "website for Yale students to connect to career opportunities",
   "repository": "git@github.com:yuzheww/yale-careermate.git",
-  "author": "CareerMate Team",
+  "author": "Yale CareerMate Team",
   "license": "MIT",
   "private": true,
   "scripts": {
