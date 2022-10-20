@@ -3920,18 +3920,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tonybadguy/call-me-maybe@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@tonybadguy/call-me-maybe@npm:2.1.1"
-  dependencies:
-    caseless: ^0.11.0
-    error: ^7.0.2
-    small-request: ^2.1.0
-    string-template: ^1.0.0
-  checksum: 657ceea20fe8a6b80ef9fa5a2ab59dd9666a7c479f224e16e31cfb94a20e8a19a937ee846171c423a5b33fc562bbd7a2378e33c775c6085fef4c556bb2736a2b
-  languageName: node
-  linkType: hard
-
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -5221,13 +5209,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"caseless@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "caseless@npm:0.11.0"
-  checksum: c46425542380a11e5814ab7815eb16e008f38f8de0c604e0ced58fafcece56be38e9262fc35c4bbab7f102a5be261edfdb51ebbda140f9c507f72ba44f517ed8
-  languageName: node
-  linkType: hard
-
 "chakra-paginator@npm:^0.7.3":
   version: 0.7.3
   resolution: "chakra-paginator@npm:0.7.3"
@@ -5940,15 +5921,6 @@ __metadata:
   dependencies:
     is-arrayish: ^0.2.1
   checksum: c1c2b8b65f9c91b0f9d75f0debaa7ec5b35c266c2cac5de412c1a6de86d4cbae04ae44e510378cb14d032d0645a36925d0186f8bb7367bcc629db256b743a001
-  languageName: node
-  linkType: hard
-
-"error@npm:^7.0.2":
-  version: 7.2.1
-  resolution: "error@npm:7.2.1"
-  dependencies:
-    string-template: ~0.2.1
-  checksum: 9c790d20a386947acfeabb0d1c39173efe8e5a38cb732b5f06c11a25c23ce8ac4dafbb7aa240565e034580a49aba0703e743d0274c6228500ddf947a1b998568
   languageName: node
   linkType: hard
 
@@ -9090,15 +9062,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"request-function@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "request-function@npm:2.0.0"
-  dependencies:
-    error: ^7.0.2
-  checksum: 3efb8ccb96162743e42525680d298f0745cd4e75f707cb6f721e22b7552a5dfc10bb2e8df8ccfd70f277446e09ba3056ded10b5239a9448b2a899d5479adb42c
-  languageName: node
-  linkType: hard
-
 "resolve-from@npm:^4.0.0":
   version: 4.0.0
   resolution: "resolve-from@npm:4.0.0"
@@ -9418,15 +9381,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"small-request@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "small-request@npm:2.1.0"
-  dependencies:
-    request-function: ^2.0.0
-  checksum: a662332de42b2da999d698d8bdb6742ac57f788ad31b683b071df1e80686da065ba8e8c8976cf259b7d8c533f8ba5f451cac6b0896f852bbbede841281d54cae
-  languageName: node
-  linkType: hard
-
 "smart-buffer@npm:^4.2.0":
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
@@ -9512,20 +9466,6 @@ __metadata:
   version: 0.1.2
   resolution: "streamsearch@npm:0.1.2"
   checksum: d2db57cbfbf7947ab9c75a7b4c80a8ef8d24850cf0a1a24258bb6956c97317ce1eab7dbcbf9c5aba3e6198611af1053b02411057bbedb99bf9c64b8275248997
-  languageName: node
-  linkType: hard
-
-"string-template@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "string-template@npm:1.0.0"
-  checksum: 15b0e8616ff25f3ddcd42e4a58a6833cc7be81029f97afc7b8f8d2e7c4d482a136e67399d207b7d2c31080e7a88266c670131a59e50ebc482bfeddb06b3a4215
-  languageName: node
-  linkType: hard
-
-"string-template@npm:~0.2.1":
-  version: 0.2.1
-  resolution: "string-template@npm:0.2.1"
-  checksum: 042cdcf4d4832378f12fbf45b42f479990f330cc409e6dc184838801efbc8352ccf9428fe169f8f8cfff2b864879d4ba1ef8b5f41d63d1d71844c48005a1683f
   languageName: node
   linkType: hard
 
@@ -10308,24 +10248,6 @@ __metadata:
   checksum: ffd9a4872caa5fce83e914592dd6a40bb978bf992d3dca839bc3853b9e6de951d7596f7e8c4a88bec3af3a049e46097f9139a51740d9074582fd923af8762f7a
   languageName: node
   linkType: hard
-
-"yelp-fusion@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "yelp-fusion@npm:3.0.0"
-  dependencies:
-    "@tonybadguy/call-me-maybe": ^2.1.1
-  checksum: 95131572b1308704a1e1eabd4ff078ed120dde2cb88db8513c66dceead5d793493ea2c98630c1a4c566435af08078cfdd5415c8ed6454ae335f1d9f06b06d177
-  languageName: node
-  linkType: hard
-
-"yelp@workspace:packages/data-collection/yelp":
-  version: 0.0.0-use.local
-  resolution: "yelp@workspace:packages/data-collection/yelp"
-  dependencies:
-    dotenv: ^16.0.0
-    yelp-fusion: ^3.0.0
-  languageName: unknown
-  linkType: soft
 
 "zen-observable-ts@npm:^1.2.0":
   version: 1.2.3
