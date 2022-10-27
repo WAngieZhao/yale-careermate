@@ -103,7 +103,7 @@ export const userResolver = {
                         contact_email: payload.email,
                         picture: payload.picture
                     });
-                    console.log('created profile for ' + user.email)
+                    // console.log('created profile for ' + user.email)
                 } else {
                     throw new ValidationError('Please login with yale.edu email.')
                 }
@@ -132,38 +132,14 @@ export const userResolver = {
             // session.user = user;
             // return user;
             session.user = user;
-            console.log(session)
+            // console.log(session)
             return user
         },
         googleLogout: async (parent, _, {user, session}) => {
-            console.log(session)
+            // console.log(session)
             session.user = undefined;
             return user;
         }
-        // updateThumbnail: async (parent, { thumbnail }, {session}) => {
-        //     if (!session.user)
-        //         throw new AuthenticationError('No user logged in');
-        //
-        //     const { createReadStream, filename, mimetype, encoding } = await thumbnail;
-        //
-        //     if (mimetype !== "image/png" && mimetype !== "image/jpeg") {
-        //         throw new ApolloError('Invalid file type.');
-        //     }
-        //
-        //     const uploadRes = await uploadS3File(createReadStream, mimetype);
-        //
-        //     const location = uploadRes.Location;
-        //
-        //     session.user = await userModel.findOneAndUpdate({
-        //         _id: session.user._id
-        //     }, {
-        //         thumbnail: location
-        //     }, {
-        //         new: true
-        //     });
-        //
-        //     return { filename, mimetype, encoding };
-        // },
     },
     User: {
         id: (parent) => {
