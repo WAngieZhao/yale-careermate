@@ -19,9 +19,6 @@ MONGODB_URL=mongodb://localhost:27017/apartmate
 FRONTEND_URL=http://localhost:3000
 SESSION_SECRET=potato123
 GOOGLE_CLIENT_ID=<Our Google ID>
-S3_BUCKET=cs3891-apartmate
-S3_KEY=AKIAT6DX7YSMBJF6AZUY
-S3_SECRET=<Our S3 Secret>
 ```
 
 (Note that the MongoDB connection string MUST have the port 27017)
@@ -40,6 +37,6 @@ S3_SECRET=<Our S3 Secret>
 - run `yarn dev` from the root directory
 - The backend and frontend will both automatically reload with changes in your code.
 
-### Step 4
+### Step 3
 
 - You can now go to [this endpoint](http://localhost:8080/graphql) to try some graphql!
