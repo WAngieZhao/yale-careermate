@@ -109,24 +109,6 @@ export const userResolver = {
                 }
             }
 
-
-            // // Check if an authenticator exists
-            // if (!(await googleAuthModel.exists({
-            //     googleId: payload.sub
-            // }))) {
-            //     throw new AuthenticationError('Register an account first.');
-            // }
-            //
-            // // Find the login model
-            // const auth = await googleAuthModel.findOne({
-            //     googleId: payload.sub
-            // });
-            //
-            // const user = await userModel.findById(auth.user);
-            //
-            // console.log(auth);
-            // console.log(user);
-
             // Create the Google login
             // @ts-ignore
             // session.user = user;
