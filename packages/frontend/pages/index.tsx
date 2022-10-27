@@ -4,8 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import NavBar from "../shared-components/NavBar";
-import icon from "../assets/apartmate_icon.png";
-import logo from "../assets/apartmate_logo.png";
 import {VStack, Heading, Container} from "@chakra-ui/react";
 import Homepage from "../components/Home";
 
