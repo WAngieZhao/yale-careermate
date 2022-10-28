@@ -1,12 +1,10 @@
 import {ApolloError, AuthenticationError, ValidationError} from "apollo-server-express";
 import {finished} from 'stream/promises';
-import AWS from "aws-sdk"
 import {nanoid} from "nanoid";
 import * as stream from "stream";
 import {userModel} from "../models/userModel.js";
 import {OAuth2Client} from "google-auth-library";
 import {config} from "../../config.js";
-// import {ValidationError} from "apollo-server-errors/src";
 
 
 export const userResolver = {
@@ -23,7 +21,7 @@ export const userResolver = {
             const users = await userModel.find({}).exec();
             return users;
         },
-        currentUser: async(parent, _, {user}) => {
+        currentUser: async (parent, _, {user}) => {
             // console.log(session)
             return user;
         },
@@ -127,13 +125,5 @@ export const userResolver = {
         id: (parent) => {
             return parent._id;
         },
-        // reviews: async ({ _id }, args, { models: { reviewModel } }, info) => {
-        //     const reviews = await reviewModel.find({ author: _id }).exec();
-        //     return reviews;
-        // },
-        // auths: async (parent, __, ctx, info) => {
-        //     const auths = await authModel.find({ user: parent._id });
-        //     return auths;
-        // },
     },
 };

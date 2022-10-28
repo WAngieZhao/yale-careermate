@@ -9,7 +9,6 @@ import {
     PopoverBody, VStack, Divider, LinkBox, HStack, Avatar, Popover
 } from "@chakra-ui/react";
 
-import useBuildingAutocomplete from "../components/useBuildingAutocomplete";
 import NextLink from "next/link";
 import useUserAutocomplete from "../components/useUserAutocomplete";
 

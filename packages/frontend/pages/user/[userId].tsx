@@ -45,15 +45,10 @@ export default function DisplayUser() {
     // if (loading) return <p>Loading...</p>;
     // if (error) return <p>There was an error loading the building data :( ${error.message}</p>;
     if (error) router.push('/search')
-    // if (!data) return <p></p>
-    console.log(data)
-    // const user = data.user;
 
     return (
         <CoreLayout>
             <Container maxW={"container.lg"}>
-                {/*<a onClick={() => router.back()}>&#8592; Back to search results</a>*/}
-                {/*TODO: design user profile layout*/}
                 {!loading && !error && data && <>
                     <Center h = "50vh" w='1000px'>
                     <Flex>

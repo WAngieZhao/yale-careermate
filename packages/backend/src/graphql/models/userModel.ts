@@ -7,10 +7,6 @@ export interface IUser {
     name: string
     email: string
     picture: string
-
-    // year?: string
-    // reviews: string[]
-    // auths: string[]
 }
 
 const userSchema = new Schema({
@@ -24,15 +20,6 @@ const userSchema = new Schema({
     name: {
         type: String,
     },
-    // thumbnail: {
-    //     type: String,
-    // },
-    // reviews: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'review',
-    //     },
-    // ],
     contact_email: {
         type: String,
         lowercase: true,

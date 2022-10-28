@@ -41,7 +41,6 @@ import {useRouter} from "next/router";
 import {useState} from "react";
 import {List, Map, Search, User} from "react-feather";
 import NextLink from "next/link";
-import useBuildingAutocomplete from "./useBuildingAutocomplete";
 import useUser, {IUser} from "./useUser";
 import CareermateLogo from "./careermateLogo";
 import useUserAutocomplete from "./useUserAutocomplete";

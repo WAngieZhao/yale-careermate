@@ -28,7 +28,7 @@ export default function Index2() {
                 <Box bg={"white"} w={["100%", "60%", "30%"]} h={"100%"}>
                     <Container maxW={"container.lg"}>
                         <Heading size={"lg"}>
-                            Let's find you an apartment that feels like home.
+                            Text
                         </Heading>
                     </Container>
                 </Box>
