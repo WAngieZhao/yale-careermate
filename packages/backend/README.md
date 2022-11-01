@@ -1,4 +1,4 @@
-# Apartmate Backend Development
+# Careermate Backend Development
 
 ## FAQ
 
@@ -13,12 +13,7 @@ E.g. you have to type `import {config} from "./config.js";`. You cannot type `im
 - Create a `.env` file under `/backend` directory, fill it with your environment variables
 - An example is like this:
 ```
-PORT=3001
-NODE_ENV=development
-MONGODB_URL=mongodb://localhost:27017/apartmate
-FRONTEND_URL=http://localhost:3000
-SESSION_SECRET=potato123
-GOOGLE_CLIENT_ID=<Our Google ID>
+#TODO
 ```
 
 (Note that the MongoDB connection string MUST have the port 27017)
