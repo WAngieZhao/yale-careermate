@@ -10,32 +10,6 @@ export interface IUser {
 }
 
 export default function useUser() {
-    // const {data, loading, error, refetch} = useQuery(gql`
-    //     query GetMe {
-    //         me {
-    // 			id
-    //             email
-    //             thumbnail
-    // 			reviews {
-    // 				building {
-    // 				  buildingName
-    // 				}
-    // 				comment
-    // 				upVotes
-    // 				downVotes
-    // 				bedNum
-    // 				bathNum
-    // 				leaseLen
-    // 				rent
-    // 				totalScore
-    // 				envScore
-    // 				secScore
-    // 			  }
-    //         }
-    //     }
-    // `, {
-    // 	fetchPolicy: "network-only"
-    // });
 
     const {data, loading, error, refetch} = useQuery(gql`
         query GetCurrentUser {
