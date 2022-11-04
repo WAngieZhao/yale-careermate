@@ -16,6 +16,7 @@ export const userSchema = `
     users: [User!]
     currentUser: User
     advancedUserSearch(searchTerm: String!): [User!]
+    advancedUserFuzzySearch(searchTerm: String!): [User!]
   }
 
   extend type Mutation {

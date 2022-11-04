@@ -45,6 +45,27 @@ export const userResolver = {
             }]).exec();
             return users;
         },
+        advancedUserFuzzySearch: async (parent, {searchTerm}, {models: {userModel}}, info) => {
+            // TODO: implement fuzzy search
+            const users = await userModel.aggregate([{
+                $addFields: {
+                    nameList: {
+                        $concat: [
+                            '$name',
+                            ' ',
+                            '$company'
+                        ]
+                    }
+                }
+            }, {
+                $match: {
+                    nameList: {
+                        $regex: RegExp(searchTerm, 'i')
+                    }
+                }
+            }]).exec();
+            return users;
+        },
     },
     Mutation: {
         createUser: async (parent, {email, name}, {models: {userModel}}, info) => {
