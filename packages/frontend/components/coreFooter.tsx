@@ -17,6 +17,7 @@ export default function CoreFooter(props: ICoreFooterProps) {
                             <CareermateLogo fill={"gray.400"}/>
                         </Box>
                     </HStack>
+                    {/*TODO*/}
                     {/*<HStack spacing={5}>*/}
                     {/*	<NextLink href={"/about"}>*/}
                     {/*		<Link>*/}

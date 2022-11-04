@@ -1,11 +1,11 @@
 import {Box, Heading, HStack, Icon} from "@chakra-ui/react";
 import Logo from "../assets/cm_icon.svg";
 
-export interface IApartmateLogoProps {
+export interface ICareermateLogoProps {
     fill: string
 }
 
-export default function CareermateLogo(props: IApartmateLogoProps) {
+export default function CareermateLogo(props: ICareermateLogoProps) {
     return <>
         <HStack
             flexDir={"row"}

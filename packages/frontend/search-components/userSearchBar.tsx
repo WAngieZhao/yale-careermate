@@ -18,14 +18,14 @@ export default function UserSearchBar() {
 
     const router = useRouter();
 
-    // this is used to get a list of building information
+    // this is used to get a list of user information
     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (userName === "") {
             setMsg("Please enter a name")
             return;
         }
-        // console.log(buildingName)
+
         setMsg("");
 
         router.push(

@@ -13,10 +13,6 @@ export default function Home () {
                     <Box w='450px' mt='30px'>
                         <Image src={logo} alt="careermate full logo"/>
                     </Box>
-                    {/* <a href="">ApartMate!</a> */}
-                    {/* <Link href="/reviewForm" passHref={true}>
-                        <Button>Leave a review</Button>
-                    </Link> */}
                 </HStack>
             {/*alignItems="flex-start"*/}
                 <VStack w="full">
