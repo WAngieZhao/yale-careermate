@@ -5,8 +5,9 @@ import {useQuery, gql, useMutation} from '@apollo/client';
 import Link from 'next/link';
 import CoreLayout from "../../components/coreLayout";
 import NavBar from '../../shared-components/NavBar';
-import {Heading, Button, Text, HStack, Spacer, Divider, Container, useToast} from '@chakra-ui/react';
+import {Heading, Button, Text, HStack, Spacer, Divider, Container, useToast, FormControl, RadioGroup, FormHelperText, FormLabel, Radio, Input, FormErrorMessage} from '@chakra-ui/react';
 import {Box} from "@chakra-ui/react"
+import { useForm } from "react-hook-form";
 
 export default function DisplayUser() {
     const router = useRouter()
@@ -14,19 +15,6 @@ export default function DisplayUser() {
     // TODO: use toast to notify users that they cannot edit someone else's profile
     const toast = useToast();
 
-
-    const UPDATE_USER = gql`
-        mutation updateUserProfile($id: ID!, $name: String!, $contact_email: String!, $company: String!, $status: String!) {
-            updateUserProfile(id: $id, name: $name, contact_email: $contact_email, company: $company, status: $status) {
-                id
-                email
-                name
-                contact_email
-                status
-                company
-            }
-        }
-    `;
 
     const GET_USER = gql`
         query GetUser($userId: ID!) {
@@ -41,6 +29,18 @@ export default function DisplayUser() {
             }
         }
 	`;
+    const UPDATE_USER = gql`
+    mutation updateUserProfile($id: ID!, $name: String!, $contact_email: String!, $company: String!, $status: String!) {
+        updateUserProfile(id: $id, name: $name, contact_email: $contact_email, company: $company, status: $status) {
+            id
+            email
+            name
+            contact_email
+            status
+            company
+        }
+    }
+`;
 
     // TODO: use this to update profile
     const [updateProfile] = useMutation(UPDATE_USER);
@@ -57,17 +57,121 @@ export default function DisplayUser() {
     if (error) router.push('/search')
     // if (!data) return <p></p>
     console.log(data)
-    // const user = data.user;
+    //const user = data.user;
 
+
+
+    const ADVANCED_USER_QUERY = gql`
+        query advancedUserSearch($searchTerm: String!) {
+            advancedUserSearch(searchTerm: $searchTerm) {
+                id
+                email
+                name
+                contact_email
+                status
+                company
+            }
+        }
+    `;
+    
+    type FormData = {
+        name: string;
+        email: string;
+        contactEmail: string;
+        company: string;
+    }
+
+    const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
+
+    let status = "true";
+
+    const setS = ()=>{
+        status = "true";
+    }
+
+    const setG = ()=>{
+        status = "false";
+    }
+
+
+
+    const onSubmit = handleSubmit((data) => {
+         updateProfile({
+             variables: {
+                 id: userId,
+                 name: data.name,
+                 contact_email: data.contactEmail,
+                 company: data.company,
+                 status: status
+             }
+         }).then((data) => {
+             console.log(data)
+             router.push({
+                pathname: `/user/${userId}`,
+             })
+         }).catch((e) => {
+             console.log("error exists:", e.message);
+         })
+     });
 
     return (
         <CoreLayout>
             <Container maxW={"container.lg"}>
                 {/*<a onClick={() => router.back()}>&#8592; Back to search results</a>*/}
-
                 {/*TODO: design edit profile form, MUST add code inside the following {}*/}
-                {!loading && !error && data && <><Box>{data.user.email}</Box>
-                    <Box>{data.user.name}</Box></>}
+                {!loading && !error && data && <>
+                    <form onSubmit={onSubmit}>
+                        
+                            <FormLabel as='legend'>User Edit Form</FormLabel>
+                            
+                            <FormControl as='fieldset'>
+                                <FormLabel>Name</FormLabel>
+                                <Input defaultValue={data.user.name} type='text'
+                                       {...register("name", { required: "Please enter your name." })} />
+                            </FormControl>  
+                            
+                            <FormControl as='fieldset'>
+                                <FormLabel>Email <FormHelperText>not editable</FormHelperText></FormLabel>
+                                <Input defaultValue={data.user.email} type='email'
+                                       {...register("email")} readOnly/>
+                            </FormControl>
+                            
+                            <FormControl as='fieldset'>
+                                <FormLabel>Contact Email</FormLabel>
+                                <Input defaultValue={data.user.contact_email} type='email'
+                                {...register("contactEmail")} />
+                            </FormControl>
+
+                            <FormControl as='fieldset'>
+                                <FormLabel>Company</FormLabel>
+                                <Input defaultValue={data.user.company} type='text'
+                                {...register("company")} />
+                            </FormControl>
+
+                            <FormControl as='fieldset'>
+                                <FormLabel>Status</FormLabel>
+                                <RadioGroup defaultValue={data.user.status=="true" ?
+                                    'Student' : 'Graduated'} >
+                                    <HStack spacing='24px'>
+                                        <Radio value='Student'  onChange ={setS}>Student</Radio>
+                                        <Radio value='Graduated' onChange={setG} >Graduated</Radio>
+                                    </HStack>
+                                </RadioGroup>
+                            </FormControl>
+
+                            <Button
+                                mt={4}
+                                colorScheme='teal'
+                                type='submit'
+                            >
+                                Submit
+                            </Button>
+                          
+                    </form>
+                    
+                </>}
+
+
 
                 {/*<HStack wrap={"wrap"}>*/}
                 {/*    <Heading my={3} as='h1' size='3xl'>{building.buildingName}</Heading> <Spacer/>*/}
@@ -94,6 +198,8 @@ export default function DisplayUser() {
         </CoreLayout>
     )
 }
+
+
 
 // function renderFeatureList(featureList: string[]) {
 //     return <ul>{renderFeatureListItems(featureList)}</ul>
