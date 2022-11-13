@@ -5,9 +5,9 @@ import {useQuery, gql, useMutation} from '@apollo/client';
 import Link from 'next/link';
 import CoreLayout from "../../components/coreLayout";
 import NavBar from '../../shared-components/NavBar';
-import {Heading, Button, Text, HStack, Spacer, Divider, Container, useToast, FormControl, RadioGroup, FormHelperText, FormLabel, Radio, Input, FormErrorMessage} from '@chakra-ui/react';
+import {Heading, Button, Text, HStack, Spacer, Divider, Container, useToast, FormControl, RadioGroup, FormHelperText, FormLabel, Radio, Input, FormErrorMessage, Stack} from '@chakra-ui/react';
 import {Box} from "@chakra-ui/react"
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 export default function DisplayUser() {
     const router = useRouter()
@@ -79,30 +79,21 @@ export default function DisplayUser() {
         email: string;
         contactEmail: string;
         company: string;
+        status: string
     }
 
-    const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
-
-    let status = "true";
-
-    const setS = ()=>{
-        status = "true";
-    }
-
-    const setG = ()=>{
-        status = "false";
-    }
+    const {register, handleSubmit, formState: {errors},control} = useForm<FormData>();
 
 
-
-    const onSubmit = handleSubmit((data) => {
+    const onSubmit = handleSubmit((data:FormData) => {
+        console.log(data)
          updateProfile({
              variables: {
                  id: userId,
                  name: data.name,
                  contact_email: data.contactEmail,
                  company: data.company,
-                 status: status
+                 status: data.status
              }
          }).then((data) => {
              console.log(data)
@@ -148,16 +139,23 @@ export default function DisplayUser() {
                                 {...register("company")} />
                             </FormControl>
 
-                            <FormControl as='fieldset'>
-                                <FormLabel>Status</FormLabel>
-                                <RadioGroup defaultValue={data.user.status=="true" ?
-                                    'Student' : 'Graduated'} >
-                                    <HStack spacing='24px'>
-                                        <Radio value='Student'  onChange ={setS}>Student</Radio>
-                                        <Radio value='Graduated' onChange={setG} >Graduated</Radio>
-                                    </HStack>
-                                </RadioGroup>
-                            </FormControl>
+                            
+                            <Controller
+                                name="status"
+                                control={control}
+                                defaultValue={data.user.status}
+                                render={({ field: { onChange, value } }) => (
+                                    <FormControl as='fieldset'>
+                                        <FormLabel>Status</FormLabel>
+                                        <RadioGroup  onChange={onChange} value={value}>
+                                            <HStack spacing='24px'>
+                                                <Radio value="true" >Student</Radio>
+                                                <Radio value="false" >Graduated</Radio>
+                                            </HStack>
+                                        </RadioGroup>
+                                    </FormControl>
+                                )}
+                                />
 
                             <Button
                                 mt={4}
