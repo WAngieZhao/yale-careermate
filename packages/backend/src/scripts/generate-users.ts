@@ -5,7 +5,7 @@ import {config} from "../config.js";
 import {faker} from "@faker-js/faker";
 import {userModel} from "../graphql/models/userModel.js";
 
-const GENERATE_COUNT = 20;
+const GENERATE_COUNT = 10;
 
 (async function () {
 
@@ -29,7 +29,7 @@ async function generateUsers(retries = 0) {
 
 	try {
 		await userModel.create({
-			name: faker.word.adjective() + faker.word.noun(),
+			name: faker.word.adjective() + ' ' + faker.word.noun(),
 			email: faker.internet.email(),
 			contact_email: faker.internet.email(),
 			company: faker.company.companyName(),

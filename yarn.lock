@@ -4926,6 +4926,7 @@ __metadata:
     lodash: ^4.17.21
     mongodb: ^4.3.1
     mongoose: ^6.2.1
+    mongoose-fuzzy-searching: ^2.0.2
     nanoid: ^3.3.3
     nodemon: ^2.0.15
     react-facebook-login: ^4.1.1
@@ -8004,6 +8005,15 @@ __metadata:
     saslprep:
       optional: true
   checksum: 5684b5481bfbf73e4628b8bad7018cd4436fdb23b9548fb38dece3e079b1716fe870d41070a505d13ae4d86c107315afaf34891ba2b64925eb4fa4cd5bb70300
+  languageName: node
+  linkType: hard
+
+"mongoose-fuzzy-searching@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "mongoose-fuzzy-searching@npm:2.0.2"
+  peerDependencies:
+    mongoose: 5.10.x
+  checksum: 3b61fff8e426079f3b53b2be7d2d3ef1d532d46069f600b7eea552d10ccb2fb1f78024cbbd91c702991416d02026f98ac68be7683b57f956a373420b5337cf80
   languageName: node
   linkType: hard
 

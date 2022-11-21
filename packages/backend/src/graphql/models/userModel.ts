@@ -1,4 +1,5 @@
 import pkg from 'mongoose';
+import mongoose_fuzzy_searching from 'mongoose-fuzzy-searching'
 
 const {Schema, model} = pkg;
 
@@ -19,6 +20,7 @@ const userSchema = new Schema({
     },
     name: {
         type: String,
+        default: '',
     },
     contact_email: {
         type: String,
@@ -42,6 +44,26 @@ const userSchema = new Schema({
     // collection: 'users'
 });
 
+
+// userSchema.plugin(mongoose_fuzzy_searching, {
+//     fields: [{
+//         name: 'name',
+//         minSize: 2,
+//         prefixOnly: false
+//     },
+//         // {
+//         //     name: 'company',
+//         //     minSize: 2,
+//         //     prefixOnly: false
+//         // }
+//     ]
+// })
+// ;
+
+userSchema.plugin(mongoose_fuzzy_searching, {
+    fields: ['name','company']
+})
+;
 export const userModel = model('user', userSchema);
 
 // export default userModel;
