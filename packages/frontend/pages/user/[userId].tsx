@@ -32,12 +32,13 @@ export default function DisplayUser() {
         nextFetchPolicy: "network-only"
     });
 
-    function validateStatus(status: boolean) {
+    
+    function validateStatus(status: Radio) {
         let curr_status
-        if (status == true) {
-            curr_status = "Alum"
-        } else{
+        if (status == "true") {
             curr_status = "Student"
+        } else{
+            curr_status = "Graduated"
         }
         return curr_status
     }
@@ -61,11 +62,13 @@ export default function DisplayUser() {
                             </Badge>
                         </Text>
                         <br />
-                        <Text fontSize='l'> <Text as='b'>Company : </Text>{data.user.company}</Text>
-                        <br />
                         <Text fontSize='l'> <Text as='b'>Email : </Text>{data.user.email}</Text>
                         <br />
                         <Text fontSize='l'><Text as='b'>Contact Email : </Text>{data.user.contact_email}</Text>
+                        <br />
+                        
+                            {data.user.company === "" ? <></> : <Text fontSize='l'> <Text as='b'>Company : </Text>{data.user.company}</Text>}
+                        
                     </Box>
                     </Flex>
                     </Center>

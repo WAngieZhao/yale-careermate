@@ -85,10 +85,13 @@ export const userResolver = {
             // console.log(session)
             // validate user: a user can only edit his/her own profile
             // TODO: test this
-            if (session.user && id != session.user.id) {
-                throw new AuthenticationError('You can only edit your profile.')
-            }
 
+            // console.log(session.user.id , " ==== " ,id)
+            // if (session.user && id != session.user.id) {
+            //     throw new AuthenticationError('You can only edit your profile.')
+            // }
+
+            
             // validate new contact email
             const new_email = contact_email
             const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
