@@ -32,12 +32,13 @@ export default function DisplayUser() {
         nextFetchPolicy: "network-only"
     });
 
-    function validateStatus(status: boolean) {
+    
+    function validateStatus(status: Radio) {
         let curr_status
-        if (status == true) {
-            curr_status = "Alum"
-        } else{
+        if (status == "true") {
             curr_status = "Student"
+        } else{
+            curr_status = "Graduated"
         }
         return curr_status
     }
