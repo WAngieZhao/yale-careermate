@@ -82,15 +82,15 @@ export const userResolver = {
         },
         // updateUserProfile: async (parent, {id, name, contact_email, company, status}, {models: {userModel}}, {session}) => {
         updateUserProfile: async (parent, {id, name, contact_email, company, status}, {session}) => {
-            // console.log(session)
+            console.log("the session is ",session)
             // validate user: a user can only edit his/her own profile
             // TODO: test this
 
-            // console.log(session.user.id , " ==== " ,id)
-            // if (session.user && id != session.user.id) {
-            //     throw new AuthenticationError('You can only edit your profile.')
-            // }
-
+            if (!session.user || (session.user && id != session.user._id)){
+                console.log("Not Authorzied")
+                throw new AuthenticationError('You can only edit your profile.')
+            }          
+            console.log("Authorzied!")
             
             // validate new contact email
             const new_email = contact_email
