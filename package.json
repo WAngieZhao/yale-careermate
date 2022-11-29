@@ -2,12 +2,13 @@
   "name": "careermate",
   "version": "1.0.0",
   "description": "website for Yale students to connect to career opportunities",
-  "repository": "git@github.com:yuzheww/yale-careermate.git",
+  "repository": "git@github.com:wangiezhao/yale-careermate.git",
   "author": "Yale CareerMate Team",
   "license": "MIT",
   "private": true,
   "scripts": {
     "build": "yarn build",
+    "start": "yarn workspace shared dev & yarn workspace backend dev & yarn workspace frontend dev",
     "start:backend": "yarn workspace backend start",
     "start:frontend": "yarn workspace frontend start",
     "dev": "yarn workspace shared dev & yarn workspace backend dev & yarn workspace frontend dev"
