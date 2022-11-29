@@ -102,6 +102,7 @@ export default function DisplayUser() {
              })
          }).catch((e) => {
              console.log("error exists:", e.message);
+             alert("edit failed");
          })
      });
 
