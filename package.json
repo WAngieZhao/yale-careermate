@@ -14,7 +14,7 @@
     "dev": "yarn workspace shared dev & yarn workspace backend dev & yarn workspace frontend dev"
   },
   "engines": {
-    "npm": "16.7.0"
+    "node": "16.x"
   },
   "workspaces": [
     "packages/frontend",
