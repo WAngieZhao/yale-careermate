@@ -96,13 +96,17 @@ export default function DisplayUser() {
                  status: data.status
              }
          }).then((data) => {
-             console.log(data)
-             router.push({
-                pathname: `/user/${userId}`,
-             })
+             toast({
+                 title: "Edit successful",
+                 status: "success"
+             });
          }).catch((e) => {
              console.log("error exists:", e.message);
-             alert("edit failed");
+             toast({
+                 title: "Failed to edit.",
+                 description: e.message,
+                 status: "error"
+             });
          })
      });
 
