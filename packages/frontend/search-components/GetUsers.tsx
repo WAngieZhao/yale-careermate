@@ -14,8 +14,8 @@ export default function GetUsers({props}: { props: any }) {
 
 
     const ADVANCED_USER_QUERY = gql`
-        query advancedUserSearch($searchTerm: String!) {
-            advancedUserSearch(searchTerm: $searchTerm) {
+        query advancedUserFuzzySearch($searchTerm: String!) {
+            advancedUserFuzzySearch(searchTerm: $searchTerm) {
                 id
                 email
                 name
@@ -39,9 +39,9 @@ export default function GetUsers({props}: { props: any }) {
             }
         }).then((result) => {
             console.log(result.data)
-            setUserList(result.data.advancedUserSearch);
-            setFoundNum(result.data.advancedUserSearch.length);
-            const pagesTotal = Math.ceil(result.data.advancedUserSearch.length / LIMIT);
+            setUserList(result.data.advancedUserFuzzySearch);
+            setFoundNum(result.data.advancedUserFuzzySearch.length);
+            const pagesTotal = Math.ceil(result.data.advancedUserFuzzySearch.length / LIMIT);
             setPagesQuantity(pagesTotal);
             setCurrPage(1);
         })

@@ -33,9 +33,9 @@ export default function DisplayUser() {
     });
 
     
-    function validateStatus(status: boolean) {
+    function validateStatus(status: string) {
         let curr_status
-        if (status == true) {
+        if (status == "true") {
             curr_status = "Student"
         } else{
             curr_status = "Graduated"
