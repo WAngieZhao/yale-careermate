@@ -1,7 +1,4 @@
-import {ApolloError, AuthenticationError, ValidationError} from "apollo-server-express";
-import {finished} from 'stream/promises';
-import {nanoid} from "nanoid";
-import * as stream from "stream";
+import {AuthenticationError, ValidationError} from "apollo-server-express";
 import {userModel} from "../models/userModel.js";
 import {OAuth2Client} from "google-auth-library";
 import {config} from "../../config.js";
@@ -46,33 +43,7 @@ export const userResolver = {
             return users;
         },
         advancedUserFuzzySearch: async (parent, {searchTerm}, {models: {userModel}}, info) => {
-            // TODO: implement fuzzy search
-            // const users = await userModel.aggregate([{
-            //     $addFields: {
-            //         nameList: {
-            //             $concat: [
-            //                 '$name',
-            //                 ' ',
-            //                 '$company'
-            //             ]
-            //         }
-            //     }
-            // }, {
-            //     $search: {
-            //         "text": {
-            //             "path": "name",
-            //             "query": searchTerm,
-            //             "fuzzy": {}
-            //         }
-            //     }
-            // }]).exec();
-            // return users;
-
-
-            console.log(searchTerm)
-            const users = await userModel.fuzzySearch(searchTerm).exec();
-            console.log(users.length)
-            return users
+            return await userModel.fuzzySearch(searchTerm).exec();
         },
     },
     Mutation: {
@@ -80,12 +51,9 @@ export const userResolver = {
             const user = await userModel.create({email, name, contact_email: email});
             return user;
         },
-        // updateUserProfile: async (parent, {id, name, contact_email, company, status}, {models: {userModel}}, {session}) => {
         updateUserProfile: async (parent, {id, name, contact_email, company, status}, {session}) => {
             console.log("the session is ",session)
             // validate user: a user can only edit his/her own profile
-            // TODO: test this
-
             if (!session.user || (session.user && id != session.user._id)){
                 console.log("Not Authorzied")
                 throw new AuthenticationError('You can only edit your profile.')
@@ -105,13 +73,11 @@ export const userResolver = {
                 company: company,
                 status: status
             });
+
             // returns unchanged user profile
             return user;
         },
         googleLogin: async (parent, {token}, {session}) => {
-            // console.log(session)
-            // console.log(token)
-            // console.log(session)
             const client = new OAuth2Client(config.GOOGLE_CLIENT_ID);
             const ticket = await client.verifyIdToken({
                 idToken: token,
@@ -119,9 +85,6 @@ export const userResolver = {
             });
 
             const payload = ticket.getPayload();
-
-            // console.log(payload);
-
 
             let user = await userModel.findOne({email: payload.email}).exec();
             if (user == null) {
@@ -144,11 +107,9 @@ export const userResolver = {
             // session.user = user;
             // return user;
             session.user = user;
-            // console.log(session)
             return user
         },
         googleLogout: async (parent, _, {user, session}) => {
-            // console.log(session)
             session.user = undefined;
             return user;
         }
