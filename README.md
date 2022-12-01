@@ -44,8 +44,8 @@ We decided to use a complete new tech stack to increase the difficulty of our pr
 #### Environmental Variables
 1. CD to the `/packages/frontend/` directory.
 Create a `.env.local` file in the `frontend` directory. Place the following values into it:
-```env
-NEXT_PUBLIC_GOOGLE_CLIENT_ID=539193876-qgqjn7o8gkgui54a86c9sdpbmo2o2lnv.apps.googleusercontent.com
+```
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=<OUR GOOGLE CLIENT ID>
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8080
 ```
 
@@ -56,14 +56,13 @@ PORT=8080
 MONGO_USERNAME=admin
 MONGO_PASSWORD=admin
 NODE_ENV=development
-MONGODB_URL=mongodb+srv://admin:admin@cluster0.duu9tqt.mongodb.net/?retryWrites=true&w=majority
+MONGODB_URL=mongodb+srv://admin:<PASSWORD>@cluster0.duu9tqt.mongodb.net/?retryWrites=true&w=majority
 REACT_APP_GOOGLE_CLIENT_ID=539193876-qgqjn7o8gkgui54a86c9sdpbmo2o2lnv.apps.googleusercontent.com
 FRONTEND_URL=http://localhost:3000
 SESSION_SECRET=session-secret
-S3_BUCKET=cs3891-careermate
-S3_KEY=AKIAT6DX7YSMBJF6AZUY
-S3_SECRET= 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
 ```
 
 - [Install Yarn](https://classic.yarnpkg.com/lang/en/docs/install).
-- CD to the root directory, run `yarn dev`. This will start up a single process that continually watches the typescript in all three modules for changes, auto recompiles, and auto starts a development server.
+- CD to the root directory, run `yarn install`. 
+- At root directory, run `yarn dev`. This will start up a single process that continually watches the typescript in all three modules for changes, auto recompiles, and auto starts a development server.
+- Access to the project at `http://localhost:3000`.
