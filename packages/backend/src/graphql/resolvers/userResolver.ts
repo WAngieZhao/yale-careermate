@@ -104,8 +104,6 @@ export const userResolver = {
 
             // Create the Google login
             // @ts-ignore
-            // session.user = user;
-            // return user;
             session.user = user;
             return user
         },

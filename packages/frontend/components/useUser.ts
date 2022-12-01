@@ -23,12 +23,8 @@ export default function useUser() {
 	`, {
         fetchPolicy: "network-only"
     });
-    // console.log(data)
-    // console.log(data.currentUser)
-    // console.log(error)
-    // const user: IUser | undefined = (data && data.currentUser) && (<IUser> data.me);
+
     const user: IUser | undefined = (data && data.currentUser) && (<IUser>data.currentUser);
-    // console.log(user)
 
     const [logout] = useMutation(gql`
         mutation Logout {

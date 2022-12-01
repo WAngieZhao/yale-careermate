@@ -1,4 +1,4 @@
-import {Text, Box,Image as ChakraImage} from "@chakra-ui/react"
+import {Text, Box} from "@chakra-ui/react"
 import {Link, Flex, Spacer} from "@chakra-ui/react"
 import React from 'react';
 
@@ -22,12 +22,6 @@ export default function UserSearchResultRow(props: UserBasicProps) {
                 <Flex>
                 <Box ml='3'>
                     <Text fontSize='l'> <Text as='b'><Link href={`/user/${id}`} isExternal> {name}</Link></Text></Text>
-
-                    {/*<Text fontWeight='bold'> {name}</Text>*/}
-                    {/*<Text fontSize='sm'>{company}</Text>*/}
-                    {/*<Badge ml='1' colorScheme='green'>*/}
-                        {/*validateStatus(status)*/}
-                    {/*</Badge>*/}
                 </Box>
                 <Spacer />
                 <Box ml='3'>

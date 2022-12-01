@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {gql, useLazyQuery} from '@apollo/client';
-import Link from 'next/link';
-import {Container, Button, FormControl, FormLabel, Box, Input, Text, HStack} from "@chakra-ui/react";
+import {Box} from "@chakra-ui/react";
 import UserSearchResultRow from "./userSearchResultRow";
 
 type pageProps = {

@@ -24,6 +24,5 @@ export const userSchema = `
     updateUserProfile(id: ID!, name: String!, contact_email: String!, company: String!, status: String!): User!
     googleLogin(token: String!): User!
     googleLogout: User!
-    # updateThumbnail(thumbnail: Upload!): File!
   }
 `;
