@@ -57,7 +57,7 @@ MONGO_USERNAME=admin
 MONGO_PASSWORD=admin
 NODE_ENV=development
 MONGODB_URL=mongodb+srv://admin:<PASSWORD>@cluster0.duu9tqt.mongodb.net/?retryWrites=true&w=majority
-REACT_APP_GOOGLE_CLIENT_ID=539193876-qgqjn7o8gkgui54a86c9sdpbmo2o2lnv.apps.googleusercontent.com
+REACT_APP_GOOGLE_CLIENT_ID=<OUR GOOGLE CLIENT ID>
 FRONTEND_URL=http://localhost:3000
 SESSION_SECRET=session-secret
 ```
