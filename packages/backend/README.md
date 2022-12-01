@@ -21,9 +21,6 @@ MONGODB_URL=mongodb+srv://admin:<PASSWORD>@cluster0.duu9tqt.mongodb.net/?retryWr
 REACT_APP_GOOGLE_CLIENT_ID=539193876-qgqjn7o8gkgui54a86c9sdpbmo2o2lnv.apps.googleusercontent.com
 FRONTEND_URL=http://localhost:3000
 SESSION_SECRET=session-secret
-S3_BUCKET=cs3891-careermate
-S3_KEY=AKIAT6DX7YSMBJF6AZUY
-S3_SECRET= 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
 
 ```
 
