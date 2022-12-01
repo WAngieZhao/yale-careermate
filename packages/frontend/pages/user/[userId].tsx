@@ -1,13 +1,10 @@
-import NextLink from "next/link";
 import React from 'react';
 import {useRouter} from 'next/router';
 import {useQuery, gql} from '@apollo/client';
-import Link from 'next/link';
 import CoreLayout from "../../components/coreLayout";
-import NavBar from '../../shared-components/NavBar';
-import {Heading, Button, Text, HStack, Spacer, Divider, Container, useToast} from '@chakra-ui/react';
+import {Text, Container} from '@chakra-ui/react';
 import {Box} from "@chakra-ui/react"
-import {Image, Avatar, Center, Flex, Badge} from "@chakra-ui/react"
+import {Avatar, Center, Flex, Badge} from "@chakra-ui/react"
 
 export default function DisplayUser() {
     const router = useRouter()

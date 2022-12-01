@@ -34,10 +34,6 @@ export const GoogleSSO = (props: LoginProps) => {
         <span className="authButton">
             <GoogleLogin
                 clientId={(String(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID))}
-                // render={renderProps => (
-                //     <button onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                //         Login with Google
-                //     </button>)}
                 onSuccess={(res: any) => {
                     console.log(res)
                     loginWithGoogle({
@@ -56,7 +52,6 @@ export const GoogleSSO = (props: LoginProps) => {
                 onFailure={(err) => {
                     console.log(err);
                 }}
-                // cookiePolicy={'single_host_origin'}
                 autoLoad={false}
             />
         </span>);

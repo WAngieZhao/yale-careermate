@@ -29,10 +29,8 @@ export default function GetUsers({props}: { props: any }) {
     const [advancedSearch, {error: error2, data: data2, loading}] = useLazyQuery(ADVANCED_USER_QUERY);
 
     useEffect(() => {
-        // console.log("in the effect");
         if (Object.keys(props).length === 0) return;
 
-        // console.log(props);
         advancedSearch({
             variables: {
                 searchTerm: props.searchTerm ? props.searchTerm : ""

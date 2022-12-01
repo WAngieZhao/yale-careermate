@@ -16,7 +16,6 @@ const Home: NextPage = () => {
                 <title>CareerMate</title>
                 <meta name="description" content="Yale CareerMate website"/>
                 <link rel="icon" href="/favicon.ico"/>
-                {/*<link rel="icon" href="/cm_logo.ico"/>*/}
             </Head>
             <NavBar/>
             <Homepage />

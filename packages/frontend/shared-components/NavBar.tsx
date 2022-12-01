@@ -20,12 +20,6 @@ export default function NavBar() {
                     </Box>
                 </Link>
             </Box>
-            {/*<Link href="/auth/register" passHref={true}>*/}
-            {/*    <Button colorScheme='brand'><a>Join now</a></Button>*/}
-            {/*</Link>*/}
-            {/*<Link href="/auth/login" passHref={true}>*/}
-            {/*    <Button colorScheme='brand' variant="outline"><a>Login</a></Button>*/}
-            {/*</Link>*/}
             {(!userLoading && !userError && !user) && <GoogleSSO/>}
             {user && <Box pt={'20px'} pl={'20px'}><GoogleSSOLogout logout={logout}/></Box>}
 
