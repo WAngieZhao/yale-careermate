@@ -20,8 +20,4 @@ export const config = {
 
     GOOGLE_CLIENT_ID: <string>process.env['GOOGLE_CLIENT_ID'],
 
-    S3_KEY: <string>process.env['S3_KEY'],
-    S3_SECRET: <string>process.env['S3_SECRET'],
-    S3_BUCKET: <string>process.env['S3_BUCKET']
-
 };
