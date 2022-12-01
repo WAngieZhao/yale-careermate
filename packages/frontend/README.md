@@ -7,8 +7,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Create a `.env.local` file in the `frontend` directory. Place the following values into it:
 
 ```env
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=539193876-qgqjn7o8gkgui54a86c9sdpbmo2o2lnv.apps.googleusercontent.com
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8080
-NEXT_PUBLIC_GOOGLE_CLIENT_ID=<Our Google client ID>
 ```
 
 ### Running
